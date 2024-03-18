@@ -181,7 +181,7 @@ def placard_maker(filename):
       placard = Image.open(r"blank_placard.png") 
 
       # drawing flag onto placard
-      place_img(f"flags/{country_details[0]}.png", placard, int(country_details[2]),int(country_details[3]), scale=float(country_details[4]))
+      place_img(f"/flags/{country_details[0]}.png", placard, int(country_details[2]),int(country_details[3]), scale=float(country_details[4]))
 
       # writing country name
       place_text(1925, 730, placard, country_details[1], font_path, font_variation, color, box_width=1900)
