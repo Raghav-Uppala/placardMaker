@@ -7,4 +7,6 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-CMD [ "python", "-m" , "flask", "run", "--host=0.0.0.0"]
+EXPOSE 8080
+
+CMD ["gunicorn", "--bind" , ":8080", "--workers", "2", "app:app"]
