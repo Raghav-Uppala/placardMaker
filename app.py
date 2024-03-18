@@ -174,7 +174,8 @@ def placard_maker(filename):
       for line in countries:
         if line[1] == " "+country[0] or line[0] == country[0]:
           country_details = [line[0].strip(), line[1].strip(), line[2].strip(), line[3].strip(), line[4].strip()]
-
+      if country_details == []:
+        return "Country flag not available"
       # print(country_details[1])
 
       # opening  blank placard
@@ -192,7 +193,8 @@ def placard_maker(filename):
       # Saving Placard
       placard.save("out.png")
 
-      save_pdf(placard, f"output/{country_details[1]}.pdf", "out.png")  
+      save_pdf(placard, f"output/{country_details[1]}.pdf", "out.png")
+      print(country_details[1])
 
   # Save all placards to one pdf
   directory = os.fsencode("output")
@@ -227,6 +229,10 @@ def upload_file():
       file.save(os.path.join("./",filename))
 
       name = placard_maker(filename)
+
+      if name == "Country flag not available":
+        return name
+
       os.remove(os.path.join("./", filename))
 
       file_path = os.path.join("./", f"{name}.pdf")
