@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["gunicorn", "--bind" , ":8080", "--workers", "2", "app:app"]
+CMD ["gunicorn", "--bind" , ":8000", "--workers", "2", "app:app"]
